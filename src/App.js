@@ -1,25 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import ExtraInfo from "./components/ExtraInfo";
+import Slider from "./components/Slider";
+import { data } from "./JsonData";
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={mainStyle}>
+      <div
+        style={ExtraStyle}
+      >
+        <Slider data={data} />
+      </div>
+      <div
+        style={ExtraStyle}
+      >
+       <ExtraInfo extraInfo={data.extraInfo} />
+      </div>
     </div>
   );
+}
+
+const mainStyle = {
+  backgroundColor: "#E3E6E3",
+  padding: "20px",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  flexDirection: "column",
+  gap: "40px",
+  height: '100vh',
+};
+
+const ExtraStyle = {
+  width: "70%",
 }
 
 export default App;
